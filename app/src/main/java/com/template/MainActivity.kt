@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         var buttonPlay: ImageButton = findViewById(R.id.imageButtonPlay)
         var buttonShare: ImageButton = findViewById(R.id.imageButtonShare)
 
-
         val sharedPreferences: SharedPreferences? =
             this?.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
 

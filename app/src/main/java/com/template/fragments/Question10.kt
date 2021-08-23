@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.template.QuestRoom
-import com.template.R
 import com.template.User
 import com.template.databinding.FragmentQuestion10Binding
 
@@ -34,7 +33,6 @@ class Question10 : Fragment() {
 
         mBinding.quest10Text.text =
             "10. How many rings are there on the Olympic flag?"
-
 
         mBinding.answer101.setOnClickListener {
             user?.health = user?.health?.minus(1)
@@ -80,10 +78,8 @@ class Question10 : Fragment() {
             (activity as QuestRoom).checkHealth()
 
         }
-
         return mBinding.root
     }
-
 
     @SuppressLint("ResourceAsColor")
     private fun showSnackBar(message: String) {

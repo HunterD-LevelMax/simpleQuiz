@@ -15,7 +15,6 @@ import com.template.fragments.*
 import kotlinx.android.synthetic.main.activity_quest_room.*
 import java.util.concurrent.TimeUnit
 
-
 class QuestRoom : AppCompatActivity() {
 
     var user: User = User(3)
@@ -83,7 +82,6 @@ class QuestRoom : AppCompatActivity() {
         countDownTimer.start()
     }
 
-
     private fun showDialogLoose() {
         class MyCustomDialog : DialogFragment() {
 
@@ -94,11 +92,9 @@ class QuestRoom : AppCompatActivity() {
             ): View? {
                 setFinishOnTouchOutside(false)
                 isCancelable = false
-
                 window?.setBackgroundDrawable(ColorDrawable(Color.WHITE));
                 return inflater.inflate(R.layout.lose_alert, container, false)
             }
-
         }
 
         var dialog: MyCustomDialog = MyCustomDialog()
@@ -112,7 +108,6 @@ class QuestRoom : AppCompatActivity() {
         )
     }
 
-
     fun showDialogWin() {
         class MyCustomDialog : DialogFragment() {
             override fun onCreateView(
@@ -122,7 +117,6 @@ class QuestRoom : AppCompatActivity() {
             ): View? {
                 setFinishOnTouchOutside(false)
                 isCancelable = false
-
                 window?.setBackgroundDrawable(ColorDrawable(Color.WHITE));
                 return inflater.inflate(R.layout.win_alert, container, false)
             }
@@ -138,21 +132,17 @@ class QuestRoom : AppCompatActivity() {
                     .getString("USER_HEALTH", null)
                     ?.toInt()
 
-
                 if (health != null) {
                     if (health in 1..3) {
                         replaceActivity(MainActivity())
                     }
                 }
-
-
             }, 5000
         )
     }
 
     override fun onStop() {
         super.onStop()
-
     }
 
 }
