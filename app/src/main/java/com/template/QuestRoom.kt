@@ -42,7 +42,7 @@ class QuestRoom : AppCompatActivity() {
         }
 
         if (user.health == 0) {
-            showDialogLoose()
+            showDialogWinLose("lose")
         }
 
     }
@@ -76,39 +76,14 @@ class QuestRoom : AppCompatActivity() {
                     putString("USER_HEALTH", "3")
                 }?.apply()
 
-                showDialogLoose()
+                showDialogWinLose("lose")
             }
         }
         countDownTimer.start()
     }
 
-    private fun showDialogLoose() {
-        class MyCustomDialog : DialogFragment() {
 
-            override fun onCreateView(
-                inflater: LayoutInflater,
-                container: ViewGroup?,
-                savedInstanceState: Bundle?
-            ): View? {
-                setFinishOnTouchOutside(false)
-                isCancelable = false
-                window?.setBackgroundDrawable(ColorDrawable(Color.WHITE));
-                return inflater.inflate(R.layout.lose_alert, container, false)
-            }
-        }
-
-        var dialog: MyCustomDialog = MyCustomDialog()
-        dialog.dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent);
-        dialog.show(supportFragmentManager, "")
-        val handler = android.os.Handler()
-        handler.postDelayed(
-            {
-                replaceActivity(MainActivity())
-            }, 5000
-        )
-    }
-
-    fun showDialogWin() {
+    fun showDialogWinLose(win:String) {
         class MyCustomDialog : DialogFragment() {
             override fun onCreateView(
                 inflater: LayoutInflater,
@@ -118,7 +93,12 @@ class QuestRoom : AppCompatActivity() {
                 setFinishOnTouchOutside(false)
                 isCancelable = false
                 window?.setBackgroundDrawable(ColorDrawable(Color.WHITE));
-                return inflater.inflate(R.layout.win_alert, container, false)
+
+                return if(win == "win"){
+                    inflater.inflate(R.layout.win_alert, container, false)
+                }else{
+                    inflater.inflate(R.layout.lose_alert, container, false)
+                }
             }
         }
 

@@ -61,7 +61,7 @@ class Question10 : Fragment() {
 
         mBinding.answer103.setOnClickListener {
             showSnackBar("Wright answer")
-            (activity as QuestRoom).showDialogWin()
+            (activity as QuestRoom).showDialogWinLose("win")
         }
 
         mBinding.answer104.setOnClickListener {
