@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Template">
-        <activity android:name=".quest1"></activity>
         <activity android:name=".QuestRoom" />
         <activity android:name=".MainActivity">
             <intent-filter>

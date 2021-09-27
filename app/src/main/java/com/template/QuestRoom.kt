@@ -112,12 +112,10 @@ class QuestRoom : AppCompatActivity() {
                     .getString("USER_HEALTH", null)
                     ?.toInt()
 
-                if (health != null) {
-                    if (health in 1..3) {
+                    if (health in 0..3) {
                         replaceActivity(MainActivity())
                     }
-                }
-            }, 5000
+            }, 3000
         )
     }
 
